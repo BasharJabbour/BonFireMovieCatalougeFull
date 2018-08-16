@@ -18,9 +18,10 @@ var movieCatalougeDatabase = function () {
   };
 
   var addMovie = function (movieTitle, genre, actors){
-    return [movieTitle, genre, actors];
+    dataset.push({movieTitle: movieTitle, genre: genre, actors: actors});
   };
-
+  
+  //this search presume the shape of data: JSON array, with first order strings or arrays only
   var movieSearch = function (searchInput) {
     var results = [];
     dataset.forEach(function(movie) {
