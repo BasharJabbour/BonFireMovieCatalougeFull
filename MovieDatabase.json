@@ -1,0 +1,17 @@
+[
+  {
+    "movieTitle": "mission Impossible",
+    "actors": [ "Tom Cruise" ],
+    "genre": [ "Action", "Drama" ]
+  },
+  {
+    "movieTitle": "Forrest Gump",
+    "actors": [ "Tom Hanks" ],
+    "genre": [ "Comedy", "Drama" ]
+  },
+  {
+    "movieTitle": "Titanic",
+    "actors": [ "Leonardo DiCaprio" ],
+    "genre": [ "History", "Drama" ]
+  }
+];

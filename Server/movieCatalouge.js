@@ -1,18 +1,5 @@
 var movieCatalougeDatabase = function () {
 
-  var dataset = [
-    {
-      movieTitle: "mission Impossible",
-      actors: [ "Tom Cruise" ],
-      genre: [ "Action", "Drama" ]
-    },
-    {
-      movieTitle: "Forrest Gump",
-      actors: [ "Tom Hanks" ],
-      genre: [ "Comedy", "Drama" ]
-    }
-  ];
-
   var loadDatbase = function () {
     return ["Mission Impossible", "Forrest Gump"];
   };
@@ -20,7 +7,7 @@ var movieCatalougeDatabase = function () {
   var addMovie = function (movieTitle, genre, actors){
     dataset.push({movieTitle: movieTitle, genre: genre, actors: actors});
   };
-  
+
   //this search presume the shape of data: JSON array, with first order strings or arrays only
   var movieSearch = function (searchInput) {
     var results = [];

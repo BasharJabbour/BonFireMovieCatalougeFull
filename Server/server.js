@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var config  = require('../web.config');
 
+var config  = require('../web.config');
 var source = config.path;
 
 
