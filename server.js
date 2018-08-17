@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-
-var config  = require('../web.config');
+var configPath = path.resolve('web.config')
+var config  = require(configPath);
 var source = config.path;
 
+app.use()
 
 app.get('/', function (req, res) {
    res.sendFile(path.resolve('index.html'));

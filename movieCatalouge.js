@@ -1,8 +1,4 @@
-var movieCatalougeDatabase = function () {
-
-  var loadDatbase = function () {
-    return ["Mission Impossible", "Forrest Gump"];
-  };
+var movieCatalougeDatabase = function (dataset) {
 
   var addMovie = function (movieTitle, genre, actors){
     dataset.push({movieTitle: movieTitle, genre: genre, actors: actors});
