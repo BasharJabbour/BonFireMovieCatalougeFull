@@ -9,10 +9,18 @@
       margin-top: 20px;
     }
 
+    .actor {
+      margin-right: 10px;
+    }
+
+    .genre {
+      margin-right: 10px;
+    }
+
   </style>
 </head>
 <body>
-  <div>
+  <div class="bindings">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="search-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="true">Search</a>
@@ -23,6 +31,16 @@
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+        <input type="text" class="form-control" placeholder="Type Something">
+        <div data-bind="foreach: movies">
+          <div data-bind="text: title"></div>
+          <div data-bind="foreach: { data: actors, as: 'actor' }">
+            <span class="actor" data-bind="text: actor"></span>
+          </div>
+          <div data-bind="foreach: { data: genres, as: 'genre' }">
+            <span class="genre" data-bind="text: genre"></span>
+          </div>
+        </div>
       </div>
       <div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab">
         <form>
