@@ -4,13 +4,14 @@ module.exports.addMovie = function (movieTitle, genre, actors){
 
 module.exports.movieSearch = function (searchInput, dataset) {
   var results = [];
+  var pattern = new RegExp (searchInput, 'i');
   dataset.forEach(function(movie) {
     var found = Object.keys(movie).some(function(item) {
       if (movie[item].search) {
-        return (movie[item].search(searchInput, 'i')) > -1;
+        return !!((movie[item].match(pattern)));
       } else {
         return movie[item].some(function(element) {
-          return element.search(searchInput, 'i') > -1;
+          return (element.match(pattern));
         });
       }
     });

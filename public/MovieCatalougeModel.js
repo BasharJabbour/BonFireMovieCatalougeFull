@@ -49,6 +49,7 @@ var movieCatalouge = function (htmlElement) {
         type : 'GET',
         data: { search: data },
         success: function (results) {
+          console.log(results);
           if (results){
             results.forEach(function(movie){
               self.movies.push(movieViewModel(movie));
