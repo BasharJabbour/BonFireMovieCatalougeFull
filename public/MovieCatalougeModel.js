@@ -1,11 +1,10 @@
 var movieCatalouge = function (htmlElement) {
-  ko.options.deferUpdates = true;
 
   var updateUrl = function (data) {
     if (window.location.search) {
         return window.location.toString().split('?')[0] + '?searchTerm=' +  data;
     } else {
-      return window.location + '/search?searchTerm=' +  data;
+      return window.location + 'search?searchTerm=' +  data;
     }
   };
 
@@ -42,26 +41,26 @@ var movieCatalouge = function (htmlElement) {
 
     self.search = function (data) {
       self.movies.removeAll();
-      updateUrl(data);
       window.history.pushState(null, null, updateUrl(data));
       $.ajax({
         url: '/search',
         type : 'GET',
         data: { search: data },
         success: function (results) {
-          console.log(results);
           if (results){
             results.forEach(function(movie){
               self.movies.push(movieViewModel(movie));
             });
           }
         },
-        error: function(){
+        error: function(error){
+          console.log(error);
         }
       });
     };
 
     self.searchQuery.subscribe(self.search);
+    self.search('');
 
     return self;
   };
@@ -76,6 +75,7 @@ var movieCatalouge = function (htmlElement) {
     return self;
   };
 
+  ko.options.deferUpdates = true;
   ko.applyBindings(movieCatalougeModel(), htmlElement);
 
 };

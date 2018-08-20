@@ -12,12 +12,13 @@ var path = require('path');
 var fs = require('fs')
 
 var config  = require(path.resolve('web.config'));
-var dataset = require(path.resolve('MovieDatabase.json'));
+var dataset = require(path.resolve(config.dataset));
 var dataSearch = require(path.resolve('movieCatalouge'));
 
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get('/', function (request, result) {
+
    result.sendFile(path.resolve('index.html'));
 });
 
