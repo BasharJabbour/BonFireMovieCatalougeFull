@@ -32,16 +32,18 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
         <input type="text" class="form-control" placeholder="Search for a movie, actor, or genre" data-bind="value: searchQuery, valueUpdate: 'keyup'">
-        <div data-bind="foreach: movies">
-          <div data-bind="text: title"></div>
-          <div data-bind="foreach: { data: actors, as: 'actor' }">
-            <span class="actor" data-bind="text: actor"></span>
-          </div>
-          <div data-bind="foreach: { data: genres, as: 'genre' }">
-            <span class="genre" data-bind="text: genre"></span>
-          </div>
+        <ul data-bind="foreach: movies">
+          <li>
+            <div data-bind="text: title"></div>
+            <div data-bind="foreach: { data: actors, as: 'actor' }">
+              <span class="actor" data-bind="text: actor"></span>
+            </div>
+            <div data-bind="foreach: { data: genres, as: 'genre' }">
+              <span class="genre" data-bind="text: genre"></span>
+            </div>
+          </li>
         </div>
-      </div>
+      </ul>
       <div class="tab-pane fade" id="add" role="tabpanel" aria-labelledby="add-tab" data-bind="with: addMovieViewModel">
         <form data-bind="submit: $parent.addMovie">
           <div class="form-group">
